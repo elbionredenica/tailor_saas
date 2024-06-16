@@ -9,7 +9,13 @@ import rentals from "./routes/rentals.js";
 const PORT = process.env.PORT || 5050;
 const app = express();
 
-app.use(cors());
+app.use(cors(
+    {
+        origin: ["tailor-saas-2brc9qumj-elbionredenicas-projects.vercel.app"],
+        methods: ["POST", "GET"],
+        credentials: true
+    }
+));
 app.use(express.json({ limit: '500mb' }));
 app.use("/dress", dresses);
 app.use("/client", clients)
