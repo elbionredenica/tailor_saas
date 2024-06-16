@@ -9,19 +9,15 @@ import rentals from "./routes/rentals.js";
 const PORT = process.env.PORT || 5050;
 const app = express();
 
-app.use(cors(
-    {
-        origin: ["tailor-saas-2brc9qumj-elbionredenicas-projects.vercel.app"],
-        methods: ["POST", "GET"],
-        credentials: true
-    }
-));
+app.use(cors());
 app.use(express.json({ limit: '500mb' }));
 app.use("/dress", dresses);
 app.use("/client", clients)
 app.use("/order", orders)
 app.use("/expense", expenses)
 app.use("/rental", rentals)
+
+app.get('/', (req, res) => res.status(200).json({ message: "Hello, world!" }))
 
 app.listen(PORT, () => {
     console.log(`Server listening on port ${PORT}`)
