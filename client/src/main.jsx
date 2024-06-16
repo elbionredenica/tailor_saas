@@ -15,6 +15,7 @@ import Order from "./components/Orders/Order";
 import ExpensesList from "./components/Expenses/ExpensesList";
 import Expense from "./components/Expenses/Expense";
 import RentalsList from "./components/Rentals/RentalsList";
+import Rental from "./components/Rentals/Rental";
 import "./index.css";
 
 const router = createBrowserRouter([
@@ -63,6 +64,10 @@ const router = createBrowserRouter([
         element: <Expense />,
       },
       {
+        path: "/rentals/create",
+        element: <Rental />,
+      },
+      {
         path: "/client/edit/:id",
         element: <Client />,
       },
@@ -78,6 +83,10 @@ const router = createBrowserRouter([
         path: "/expense/edit/:id",
         element: <Expense />,
       },
+      {
+        path: "/rental/edit/:id",
+        element: <Rental />,
+      }
     ],
   },
 ]);
