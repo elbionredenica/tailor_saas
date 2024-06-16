@@ -1,10 +1,10 @@
 import express from "express";
 import cors from "cors";
-import dresses from "./routes/dresses.js";
-import clients from "./routes/clients.js";
-import orders from "./routes/orders.js";
-import expenses from "./routes/expenses.js";
-import rentals from "./routes/rentals.js";
+import dresses from "../routes/dresses.js"
+import clients from "../routes/clients.js";
+import orders from "../routes/orders.js";
+import expenses from "../routes/expenses.js";
+import rentals from "../routes/rentals.js";
 
 const PORT = process.env.PORT || 5050;
 const app = express();
