@@ -13,7 +13,7 @@ router.get("/", async (req, res) => {
 });
 
 router.get("/:id", async (req, res) => {
-    let collection = await db.collection("orders_db");
+    let collection = await db.collection("rent_db");
     let query = { _id: new ObjectId(req.params.id) };
     let result = await collection.findOne(query);
 
@@ -23,11 +23,11 @@ router.get("/:id", async (req, res) => {
 
 router.post("/", async (req, res) => {
     try {
-        const client_id = new ObjectId(req.body.client_id);
+        const booking_client_id = new ObjectId(req.body.booking_client_id);
         const dress_id = new ObjectId(req.body.dress_id);
 
         let newDocument = {
-            booking_client_id: client_id,
+            booking_client_id: booking_client_id,
             dress_id: dress_id,
             date_booked_start: req.body.date_booked_start,
             date_booked_end: req.body.date_booked_end,
@@ -46,11 +46,11 @@ router.post("/", async (req, res) => {
 router.patch("/:id", async (req, res) => {
     try {
         const query = { _id: new ObjectId(req.params.id) };
-        const client_id = new ObjectId(req.body.client_id);
+        const booking_client_id = new ObjectId(req.body.booking_client_id);
         const dress_id = new ObjectId(req.body.dress_id);
         const updates = {
             $set: {
-                booking_client_id: client_id,
+                booking_client_id: booking_client_id,
                 dress_id: dress_id,
                 date_booked_start: req.body.date_booked_start,
                 date_booked_end: req.body.date_booked_end,
